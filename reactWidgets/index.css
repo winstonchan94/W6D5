@@ -17,3 +17,42 @@
   padding: 0 10px;
   text-shadow: 2px 2px black;
 }
+.tabs {
+  border-radius: 5px;
+  width: 25%;
+  padding: 30px;
+  background-color: black;
+  box-shadow: 2px 2px green;
+  border: 5px solid black;
+
+}
+.dracos {
+  display: flex;
+  list-style-type: none;
+  width: 100%;
+  /* justify-content: space-around; */
+
+
+}
+.dracos li {
+  padding: 10px;
+  border: 5px solid black;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 2px 2px green;
+
+}
+.draco-content img {
+  display: block;
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  box-shadow: 2px 2px green;
+  border: 5px solid black;
+  margin-bottom: 5px;
+}
+
+.draco-content {
+  color: white;
+
+}

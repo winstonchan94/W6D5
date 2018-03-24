@@ -952,10 +952,22 @@ var _clock = __webpack_require__(27);
 
 var _clock2 = _interopRequireDefault(_clock);
 
+var _tabs = __webpack_require__(28);
+
+var _tabs2 = _interopRequireDefault(_tabs);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var dracos = [{ title: 'Sad Draco', content: 'very sad mudbloods', img: 'http://i.dailymail.co.uk/i/pix/2010/10/28/article-1324727-00000DBB00000CB2-257_468x415.jpg' }, { title: 'Racist Draco', content: 'Wait til my father hears about this.', img: 'https://i0.wp.com/images5.fanpop.com/image/photos/27100000/DH-Promotional-Picture-draco-malfoy-27114107-960-1280.jpg' }, { title: 'Pensive Draco', content: '...', img: 'https://orig00.deviantart.net/4286/f/2017/040/7/5/draco_malfoy_wallpaper_draco_malfoy_25527348_1024__by_hopetheglitch-dayiddu.jpg' }];
+
 document.addEventListener('DOMContentLoaded', function () {
-  _reactDom2.default.render(_react2.default.createElement(_clock2.default, null), document.getElementById('root'));
+  _reactDom2.default.render(_react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(_clock2.default, null),
+    _react2.default.createElement(_tabs2.default, { dracos: dracos })
+  ), document.getElementById('root'));
+  // ReactDOM.render(<p>Hellowisnotn</p>, document.getElementById('root'));
 });
 
 /***/ }),
@@ -18363,6 +18375,85 @@ var Clock = function (_React$Component) {
 
 exports.default = Clock;
 //clearInterval(handle);
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Tabs = function (_React$Component) {
+  _inherits(Tabs, _React$Component);
+
+  function Tabs(props) {
+    _classCallCheck(this, Tabs);
+
+    var _this = _possibleConstructorReturn(this, (Tabs.__proto__ || Object.getPrototypeOf(Tabs)).call(this, props));
+
+    _this.state = { selected: 0 };
+    return _this;
+  }
+
+  _createClass(Tabs, [{
+    key: 'changeSelected',
+    value: function changeSelected(idx) {
+      this.setState({ selected: idx });
+      console.log("Clicked");
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'tabs' },
+        _react2.default.createElement(
+          'ul',
+          { className: 'dracos' },
+          this.props.dracos.map(function (draco, idx) {
+            return _react2.default.createElement(
+              'li',
+              { key: idx, onClick: function onClick() {
+                  return _this2.changeSelected(idx);
+                } },
+              draco.title
+            );
+          })
+        ),
+        _react2.default.createElement(
+          'article',
+          { className: 'draco-content' },
+          _react2.default.createElement('img', { src: this.props.dracos[this.state.selected].img }),
+          this.props.dracos[this.state.selected].content
+        )
+      );
+    }
+  }]);
+
+  return Tabs;
+}(_react2.default.Component);
+
+exports.default = Tabs;
 
 /***/ })
 /******/ ]);
